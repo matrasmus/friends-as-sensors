@@ -15,6 +15,7 @@ All identifiers are salted SHA-256 hashes truncated to 16 hex characters. The sa
 | `USER_id_hashed` | Hash of the posting user id. |
 | `referenced_tweet_id_hashed` | Hash of the referenced tweet id for retweets, quotes and replies. Empty otherwise. |
 | `conversation_id_hashed` | Hash of the conversation root tweet id. |
+| `urls_hashed` | List of salted hashes of the expanded URLs in the tweet, one per link, aligned with `newsguard_scores`. Two tweets sharing a link share the hash, which makes the lead time pair matching reproducible, while the links themselves stay private. |
 
 ## Tweet columns
 
@@ -47,4 +48,4 @@ Repeated on every row of the posting user.
 
 ## What was removed and why
 
-Tweet text, user names, user descriptions, locations, profile links and mentions were removed because they identify people. URLs and domains were removed because together with the per tweet NewsGuard scores they would allow reconstruction of the licensed NewsGuard domain table. Remaining API metadata without use in the paper was removed for data minimization.
+Tweet text, user names, user descriptions, locations, profile links and mentions were removed because they identify people. Clear URLs and domains were removed because together with the per tweet NewsGuard scores they would allow reconstruction of the licensed NewsGuard domain table. The URLs survive only as salted hashes in `urls_hashed`. Remaining API metadata without use in the paper was removed for data minimization.
