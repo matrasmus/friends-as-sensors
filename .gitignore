@@ -1,0 +1,3 @@
+*.parquet
+dehydration_salt_PRIVATE.txt
+__pycache__/
