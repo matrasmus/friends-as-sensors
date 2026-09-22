@@ -6,7 +6,7 @@ The paper studies whether users selected through the friendship paradox act as e
 
 ## Contents
 
-- `figures.ipynb` reproduces every figure of the paper from the published datasets. Place the two dehydrated parquet files and the three lead time CSVs in `data/` and run it top to bottom.
+- `reproduce_analysis_and_figures.ipynb` reproduces every analysis figure of the paper from the published datasets. Place the two dehydrated parquet files and the three lead time CSVs in `data/` and run it top to bottom. Figure 1 of the paper is a schematic illustration of the friendship paradox without any analysis behind it and is therefore not part of the notebook.
 - `dehydrate.ipynb` builds the publishable datasets from the private raw parquets. It removes all text and profile fields, removes all URL and domain columns, and replaces every platform identifier with a salted SHA-256 hash. Each step is explained in the notebook. It only runs internally where the raw data lives.
 - `reproduce_paper_figures.py` holds the statistical helpers the figure notebook imports.
 - `DATASHEET.md` documents every column of the published parquet files.
@@ -21,7 +21,7 @@ The published datasets contain no tweet text, no user profiles, no URLs and no p
 
 **Data minimization.** API metadata and model scores that no analysis in the paper uses are dropped.
 
-The result is that every number and every figure of the paper can be recomputed from the published files alone. The one exception worth naming is the lead time pair matching, which can be recomputed via the hashed URLs, while the mapping of pairs to real links stays private.
+The result is that every number and every analysis figure of the paper can be recomputed from the published files alone. The one exception worth naming is the lead time pair matching, which can be recomputed via the hashed URLs, while the mapping of pairs to real links stays private.
 
 ## Author
 
