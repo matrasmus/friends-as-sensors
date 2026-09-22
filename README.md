@@ -26,3 +26,7 @@ The result is that every number and every analysis figure of the paper can be re
 ## Author
 
 Mathias Angermaier, University of Graz
+
+## License
+
+The code in this repository is released under the MIT license. The published datasets on Zenodo carry a CC BY 4.0 license.
