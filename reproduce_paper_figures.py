@@ -42,8 +42,7 @@ DATA_DIR = "/home/mangermaier/cs2/twitter/user"
 SENSOR_PARQUET = f"{DATA_DIR}/result_sensor_with_users_unraveled_v5.parquet"
 RANDOM_PARQUET = f"{DATA_DIR}/result_random_with_users_unraveled_v5.parquet"
 
-OUT_DIR = Path("/home/mangermaier/friendship_paradox/paper_drafts/figs_remake")
-OUT_DIR.mkdir(parents=True, exist_ok=True)
+OUT_DIR = Path(__file__).resolve().parent / "figures"
 
 LEFT_COLOR    = "#1f77b4"
 RIGHT_COLOR   = "#d32f2f"
@@ -1055,8 +1054,6 @@ def _one_iter_lead(iter_id):
 
 def run_lead_bootstrap(sensor_df, random_df, iterations=1000, n_cores=50, random_state=42):
     """Run the parallel bootstrap for the link-level lead-time analysis."""
-    import sys
-    sys.path.insert(0, "/home/mangermaier/friendship_paradox")
     from parallel import parallel_process
 
     print(f"   prep ...")
@@ -1177,6 +1174,7 @@ def _load_data_cached():
 def main():
     print("="*78)
     print("REPRODUCING ALL PAPER FIGURES (no titles, fresh from raw data)")
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
     print(f"Output dir: {OUT_DIR}")
     print("="*78)
 

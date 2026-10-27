@@ -8,7 +8,7 @@ The paper studies whether users selected through the friendship paradox act as e
 
 - `reproduce_analysis_and_figures.ipynb` reproduces every analysis figure of the paper from the published datasets. Place the two dehydrated parquet files and the three lead time CSVs in `data/` and run it top to bottom. Figure 1 of the paper is a schematic illustration of the friendship paradox without any analysis behind it and is therefore not part of the notebook.
 - `dehydrate.ipynb` builds the publishable datasets from the private raw parquets. It removes all text and profile fields, removes all URL and domain columns, and replaces every platform identifier with a salted SHA-256 hash. Each step is explained in the notebook. It only runs internally where the raw data lives.
-- `reproduce_paper_figures.py` holds the statistical helpers the figure notebook imports.
+- `reproduce_paper_figures.py` holds the statistical helpers the figure notebook imports. `parallel.py` holds the multiprocessing helper for the lead time bootstrap.
 - `DATASHEET.md` documents every column of the published parquet files.
 
 ## Why the data looks like this
